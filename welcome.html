@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>R.A.P.I.D. Home</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: "Segoe UI", system-ui, -apple-system, Roboto, sans-serif;
+    background: #fff;
+    color: #1f2937;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ---------- Header ---------- */
+  header {
+    background: linear-gradient(90deg, #04245e 0%, #0a3a8c 60%, #0d47a1 100%);
+    color: #fff;
+    padding: 14px 28px;
+    display: flex;
+    align-items: center;
+    gap: 22px;
+  }
+  .logout {
+    background: rgba(255,255,255,.15);
+    color: #fff;
+    border: 1px solid rgba(255,255,255,.55);
+    padding: 9px 16px;
+    border-radius: 8px;
+    font-size: .9rem;
+    font-weight: 700;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .logout:hover { background: rgba(255,255,255,.3); }
+  .brand { display: flex; align-items: center; gap: 18px; flex: 1; min-width: 0; }
+  .brand svg { width: 58px; height: 58px; flex-shrink: 0; }
+  .brand h1 { font-size: 2.4rem; letter-spacing: 4px; line-height: 1; }
+  .brand p { font-size: 1rem; font-weight: 600; margin-top: 4px; }
+  .home {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+  }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    position: relative;
+    background: linear-gradient(120deg, #eef7ff 0%, #e6f2ff 55%, #d6e9ff 100%);
+    padding: 56px 28px 80px;
+    overflow: hidden;
+    min-height: 460px;
+  }
+  .hero-text { position: relative; z-index: 2; max-width: 560px; }
+  .badge {
+    display: inline-block;
+    background: #d4e8fc;
+    color: #1257a8;
+    font-weight: 800;
+    font-size: .85rem;
+    padding: 9px 20px;
+    border-radius: 999px;
+    box-shadow: 0 3px 10px rgba(30,100,200,.18);
+    letter-spacing: .3px;
+  }
+  .hero h2 {
+    font-size: clamp(2rem, 5vw, 3.1rem);
+    color: #2a0a8f;
+    margin-top: 56px;
+    line-height: 1.1;
+  }
+  .hero .sub {
+    font-size: clamp(1.2rem, 2.6vw, 1.7rem);
+    color: #2b7bc9;
+    margin-top: 20px;
+  }
+  .hero .desc {
+    margin-top: 44px;
+    font-size: 1.1rem;
+    line-height: 1.55;
+    color: #374151;
+    max-width: 440px;
+  }
+  .deco {
+    position: absolute;
+    right: -60px;
+    top: -10px;
+    width: 62%;
+    max-width: 760px;
+    z-index: 1;
+    pointer-events: none;
+  }
+  @media (max-width: 800px) {
+    .deco { opacity: .35; width: 100%; right: -30%; }
+    .brand h1 { font-size: 1.6rem; letter-spacing: 2px; }
+    .brand p { font-size: .8rem; }
+    .brand svg { width: 44px; height: 44px; }
+    header { padding: 12px 14px; gap: 10px; }
+  }
+
+  /* ---------- Features ---------- */
+  .features { padding: 26px 28px 34px; }
+  .features-head { display: flex; align-items: center; gap: 22px; margin-bottom: 18px; }
+  .features-head h3 { color: #1a0a8a; font-size: 1.5rem; white-space: nowrap; }
+  .features-head .line { flex: 1; height: 1.5px; background: #1e63c4; }
+  .feature-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    text-align: center;
+  }
+  @media (max-width: 700px) { .feature-grid { grid-template-columns: 1fr; } }
+  .feature svg { width: 46px; height: 46px; margin-bottom: 6px; }
+  .feature h4 { color: #0b2a6b; font-size: 1.3rem; margin-bottom: 4px; }
+  .feature p { color: #4b5563; font-size: 1.02rem; line-height: 1.45; }
+
+  footer { margin-top: auto; background: #173a85; height: 42px; }
+</style>
+</head>
+<body>
+
+  <header>
+    <button class="logout" id="logoutBtn">Log out</button>
+
+    <div class="brand">
+      <!-- Shield logo -->
+      <svg viewBox="0 0 64 64" aria-hidden="true">
+        <path d="M32 3 6 12v18c0 15 10 26 26 31 16-5 26-16 26-31V12L32 3Z" fill="#eaf4ff" stroke="#9cc7f5" stroke-width="2"/>
+        <path d="M32 9 12 16v14c0 12 8 21 20 25 12-4 20-13 20-25V16L32 9Z" fill="#0b3d91"/>
+        <rect x="19" y="24" width="24" height="17" rx="3" fill="#eaf4ff" transform="rotate(-12 31 32)"/>
+        <circle cx="26" cy="30" r="2.6" fill="#0b3d91"/>
+        <path d="M23 37h12M23 33h8" stroke="#0b3d91" stroke-width="1.6" stroke-linecap="round" transform="rotate(-12 31 32)"/>
+        <path d="M44 22c3 3 3 8 0 11M48 19c5 5 5 13 0 18" fill="none" stroke="#eaf4ff" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      <div>
+        <h1>R.A.P.I.D.</h1>
+        <p>RFID Access and Personal Identification Database</p>
+      </div>
+    </div>
+
+    <a class="home" href="#">HOME</a>
+  </header>
+
+  <section class="hero">
+    <div class="hero-text">
+      <span class="badge">RFID VISITOR PASS SYSTEM</span>
+      <h2>Welcome to R.A.P.I.D.</h2>
+      <p class="sub">RFID Visitor Pass System</p>
+      <p class="desc">A smarter way to manage school visitors, verify identification, and maintain secure entry records.</p>
+    </div>
+
+    <!-- Decorative ID card -->
+    <svg class="deco" viewBox="0 0 600 460" aria-hidden="true">
+      <defs>
+        <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#dcecff"/>
+          <stop offset="1" stop-color="#a9cdfb"/>
+        </linearGradient>
+      </defs>
+      <circle cx="360" cy="260" r="250" fill="url(#g1)" opacity=".55"/>
+      <circle cx="380" cy="250" r="190" fill="#fff" opacity=".35"/>
+      <g transform="rotate(-16 330 240)">
+        <rect x="130" y="120" width="400" height="260" rx="22" fill="#eaf4ff" stroke="#7fb2f2" stroke-width="16"/>
+        <rect x="165" y="165" width="150" height="150" rx="10" fill="#c3dcfa"/>
+        <circle cx="240" cy="218" r="26" fill="#7fb2f2"/>
+        <path d="M190 305c0-30 22-48 50-48s50 18 50 48Z" fill="#7fb2f2"/>
+        <g fill="none" stroke="#7fb2f2" stroke-width="14" stroke-linecap="round">
+          <path d="M385 220c12 12 12 36 0 48"/>
+          <path d="M410 198c24 24 24 70 0 94"/>
+          <path d="M435 176c36 36 36 104 0 140"/>
+        </g>
+      </g>
+    </svg>
+  </section>
+
+  <section class="features">
+    <div class="features-head">
+      <h3>Access Features</h3>
+      <div class="line"></div>
+    </div>
+
+    <div class="feature-grid">
+      <div class="feature">
+        <svg viewBox="0 0 48 48" aria-hidden="true">
+          <circle cx="24" cy="24" r="22" fill="#0b4fb3"/>
+          <circle cx="24" cy="18" r="7" fill="#fff"/>
+          <path d="M10 38c1-8 7-12 14-12s13 4 14 12c-4 4-9 6-14 6s-10-2-14-6Z" fill="#fff"/>
+        </svg>
+        <h4>Visitor ID Log</h4>
+        <p>Automatic recording<br>of visitor information</p>
+      </div>
+
+      <div class="feature">
+        <svg viewBox="0 0 48 48" aria-hidden="true">
+          <path d="M24 3 6 9v13c0 11 7 19 18 23 11-4 18-12 18-23V9L24 3Z" fill="#0b3d91"/>
+          <path d="M24 8 11 12.5v9.5c0 8 5 14 13 17 8-3 13-9 13-17v-9.5L24 8Z" fill="#fff"/>
+          <path d="m16 23 6 6 11-12" fill="none" stroke="#0b3d91" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <h4>Enhanced Security</h4>
+        <p>Monitor and control<br>access to the premises</p>
+      </div>
+
+      <div class="feature">
+        <svg viewBox="0 0 48 48" aria-hidden="true">
+          <circle cx="24" cy="24" r="20" fill="#fff" stroke="#0b3d91" stroke-width="4.5"/>
+          <path d="M24 12v13l8 5" fill="none" stroke="#0b3d91" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <h4>Visit History</h4>
+        <p>View your entry<br>and visit records</p>
+      </div>
+    </div>
+  </section>
+
+  <footer></footer>
+
+<script>
+  // Only allow access if the user logged in
+  let loggedIn = false;
+  try {
+    loggedIn = sessionStorage.getItem('loggedIn') === 'true';
+  } catch (e) {}
+  if (!loggedIn) {
+    window.location.replace('index.html');
+  }
+
+  document.getElementById('logoutBtn').addEventListener('click', () => {
+    try { sessionStorage.clear(); } catch (e) {}
+    window.location.href = 'index.html';
+  });
+</script>
+</body>
+</html>
